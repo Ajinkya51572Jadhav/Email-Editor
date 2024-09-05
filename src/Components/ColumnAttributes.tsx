@@ -15,6 +15,7 @@ import { CordinalBorder } from './Mods/CordinalBorder';
 import { BorderRadius } from './Mods/BorderRadius';
 import Scrollbars from 'react-custom-scrollbars-2';
 import _ from 'lodash';
+import { FontSize } from './Mods/FontSize';
 
 const { TabPane } = Tabs;
 const CustomTabs = styled(Tabs)`
@@ -41,8 +42,8 @@ const ColumnAttributes = () => {
   const { mjmlJson } = useEditor();
   const { active } = useHtmlWrapper();
   const [columns, setActiveColumns] = useState<any>([]);
-    console.log("active___",active);
-    
+  console.log("active___", active);
+
   useEffect(() => {
     if (active) {
       const section = findSectionOfElement(active);
@@ -81,14 +82,14 @@ const ColumnAttributes = () => {
     >
       {columns &&
         columns.map((column: any, index: number) => {
-           console.log("column____",columns); 
-           
+          console.log("column____", column);
+
           return (
             <TabPane tab={`column ${index + 1}`} key={index}>
               <Scrollbars style={{ height: '100%' }} autoHide={true}>
                 <div
                   className="mods"
-                  onMouseDown={(e)=>{
+                  onMouseDown={(e) => {
                     UNDOREDO.newAction(mjmlJson);
                   }}
                   onBlur={(e) => {

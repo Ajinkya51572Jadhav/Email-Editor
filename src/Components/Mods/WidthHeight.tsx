@@ -16,6 +16,7 @@ export const Width = ({ activePath }: WidthHeightProps) => {
   const { mjmlJson, setMjmlJson } = useEditor();
   const [value, setValue] = useState<string>('');
   const { getValue } = useValue({ path, visible, attribute: ATTRIBUTE });
+  console.log("Width Value", value);
 
   useEffect(() => {
     if (visible) {
@@ -44,7 +45,7 @@ export const Width = ({ activePath }: WidthHeightProps) => {
 
   return visible ? (
     <Form.Item label="Width">
-      <Input onChange={handleChange} value={value} onKeyDown={onKeyDown} />
+      <Input onChange={handleChange} value={value == undefined ? "145px" : value} onKeyDown={onKeyDown} />
     </Form.Item>
   ) : null;
 };
@@ -84,7 +85,7 @@ export const Height = () => {
 
   return visible ? (
     <Form.Item label="Height">
-      <Input onChange={handleChange} value={value} onKeyDown={onKeyDown} />
+      <Input onChange={handleChange} value={value == undefined ? "40px" : value} onKeyDown={onKeyDown} />
     </Form.Item>
   ) : null;
 };

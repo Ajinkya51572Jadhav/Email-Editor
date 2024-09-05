@@ -6,7 +6,7 @@ import { useEditor } from '../../Hooks/Editor.hook';
 import { logger } from '../../Utils/logger';
 import { UpdateValue } from '../../Utils/operations';
 
-const ATTRIBUTE = 'inner-padding';
+const ATTRIBUTE = "inner-padding";
 
 const InnerPadding = () => {
   let [visible, path] = useVisibility({ attribute: ATTRIBUTE });
@@ -36,7 +36,7 @@ const InnerPadding = () => {
 
   return visible ? (
     <Form.Item label="Inner Padding :">
-      <Input onChange={handleChange} type="text" value={value} />
+      <Input onChange={handleChange} type="text" value={value == undefined ? "2px" : value} />
     </Form.Item>
   ) : null;
 };

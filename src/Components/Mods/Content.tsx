@@ -43,7 +43,7 @@ export const Content = () => {
     let value = e.currentTarget.value;
     setValue(value);
     if (path && visible) {
-      let element = _.get(mjmlJson, path);
+      let element = _.get(mjmlJson,path);
       // while in middle of editing, if the element is removed. thus check element is not null
       if (element) {
         if (htmlBlock) {
@@ -77,7 +77,7 @@ export const Content = () => {
           element[PROPERTY] = value;
           const updated = _.set(mjmlJson, path, element);
           setMjmlJson({ ...updated });
-        }
+        } 
       }
     }
   };

@@ -6,21 +6,25 @@ import { findElementInJson } from '../Utils/findElementInMjmlJson';
 import { useEditor } from './Editor.hook';
 import { useHtmlWrapper } from './Htmlwrapper.hook';
 
-interface useVisibilityProps {
+interface useVisibilityProps { 
   attribute?: string;
   property?: string;
   customPath?: string;
 }
 
+
+
 const useVisibility = ({ attribute, property, customPath }: useVisibilityProps): [boolean | null, string, any] => {
    
   console.log("customPath",customPath);
+  console.log("property",property);
   
     
   const [visible, setVisible] = useState<boolean | null>(false);
 
   const { active } = useHtmlWrapper();
-
+  console.log("Active",active);
+  
   const [path, setPath] = useState('');
 
   const { mjmlJson } = useEditor();
@@ -39,16 +43,20 @@ const useVisibility = ({ attribute, property, customPath }: useVisibilityProps):
 
 
     if (mjmlJson && customPath && customPath === BODY_PATH) {
+         console.log("Calling");
       setVisible(true);
       setPath(BODY_PATH);
       return;
     }
-
+       
     if (active) {
       const uniqueIdentifier = findUniqueIdentifier(active, active.classList);
+        console.log("uniqueIdentifier",uniqueIdentifier);
       if (uniqueIdentifier) {
-        let path = findElementInJson(mjmlJson, uniqueIdentifier);
+        let path = findElementInJson(mjmlJson,uniqueIdentifier);
+        console.log("checked path",path);
 
+          console.log("CustomPath",customPath);
         if (customPath) {
           path = [null, '.' + customPath];
         }

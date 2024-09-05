@@ -14,7 +14,7 @@ import { Padding } from '../../Components/Mods/Paddings';
 import { Height, Width } from '../../Components/Mods/WidthHeight';
 import styled from 'styled-components';
 import css from './Editor.module.scss';
-import { Drawer, Tabs } from 'antd';
+import { Drawer, Tabs, ConfigProvider } from 'antd';
 import { ColumnSelector } from '../../Components/ColumnSelector';
 import { FontFamily } from '../../Components/Mods/FontFamily';
 import { UNDOREDO } from '../../Utils/undoRedo';
@@ -28,7 +28,8 @@ import { LineHeight } from '../../Components/Mods/LineHeight';
 import { BodyAttributes, SideBarDefaultLayout, SideBarDefaultTitle } from '../../Components/BodyAttributes';
 import { CustomCss } from '../../Components/Mods/CustomCss';
 import { AddCustomFonts } from '../../Components/Mods/AddCustomFonts';
-import { Video } from '../../Components/Mods/Video';
+import { IconSize } from '../../Components/Mods/IconSize';
+import _ from 'lodash';
 
 const { TabPane } = Tabs;
 
@@ -123,15 +124,23 @@ export const Attributes = () => {
 };
 
 export const OnlyAttributesDrawer = () => {
+
   const { mjmlJson } = useEditor();
   const { active, setActive } = useHtmlWrapper();
   const [isDisabled, setIsDisabled] = useState(false);
   const [visible, setVisible] = useState(false);
   const [init, setInit] = useState(false);
 
+
+
+  const getValue = _.get(mjmlJson, mjmlJson);
+
   const onClose = () => {
     setVisible(false);
   };
+
+
+
 
   useEffect(() => {
     // wierd bug in antd
@@ -187,46 +196,29 @@ export const OnlyAttributesDrawer = () => {
             UNDOREDO.newAction(mjmlJson);
           }}
         >
+          <Link />
+          <Img />
           <Width />
           <Height />
           <Align />
-             {/* Vertical is not found */}
           <VerticalAlign />
-            {/* Content is not found */}
           <Content />
-             {/* LineHeigth is not found */}
           <LineHeight />
-              {/* FontSize is not found */}
           <FontSize />
-              {/* FontFamily is not found */}
-             
           <FontFamily />
           <Padding />
-            
-            {/* InnerPadding is not found */}
-
           <InnerPadding />
+          <IconSize />
           <ContainerBackground />
-            {/* BackGround is not found */}
-         
           <Background />
-            {/* BackGroundImage is not found */}
-             
           <BackgroundImage />
           <Border />
-             {/* Border1 is not found */}
           <Border label="Border Width" attribute_name="border-width" />
-             {/* Border2 is not found */}
-          
           <Border label="Border Style" attribute_name="border-style" />
-             {/* Border3 is not found */}
-             
           <Background label="Border Color" overrideAttribute="border-color" />
           {/* <CordinalBorder /> */}
-          <BorderRadius/>
-          <Link />
-          <Img/>
-          <Video/>
+          <BorderRadius />
+
         </div>
       </Scrollbars>
     </Drawer>

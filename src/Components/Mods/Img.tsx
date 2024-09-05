@@ -4,6 +4,7 @@ import { Col, Input, Modal, Row, Upload } from 'antd';
 import { useValue, useVisibility } from '../../Hooks/Attribute.hook';
 import { PlusOutlined } from '@ant-design/icons';
 import _ from 'lodash';
+import CropImage from './CropImage';
 
 const ATTRIBUTE = 'src';
 
@@ -15,9 +16,9 @@ const Img = () => {
   const [preview, setPreview] = useState({ visible: false, image: '' });
   const [fileList, setFileList] = useState([]);
    
-   console.log("preview.image",preview.image)
+   console.log("mjmlJson__checked",mjmlJson)
 
-  useEffect(() => {
+  useEffect(() =>{
     if (preview.image) {
       handleChange({ image: preview.image });
     };
@@ -45,7 +46,7 @@ const Img = () => {
     setPreview({ visible: true, image: file.url || file.preview });
   };
 
-  const handleChangeUpload = ({ fileList }: any) => {
+  const handleChangeUpload = ({ fileList }: any) => { 
     setFileList(fileList);
     const lastUploadedFile = fileList[fileList.length - 1];
     if (lastUploadedFile && lastUploadedFile.response && path && visible) {
@@ -65,7 +66,7 @@ const Img = () => {
   return visible ? (
     <Row>
       <Col span={24}>
-        <Input addonBefore="src" onChange={handleChange} value={getValue()} />
+        <Input addonBefore="Image URL" onChange={handleChange} value={getValue()} />
 
         <Upload
           action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
@@ -87,10 +88,21 @@ const Img = () => {
           visible={preview.visible}
           footer={null}
           onCancel={() => setPreview({ visible: false, image: '' })}
-        >
-          <img alt="Preview" style={{ width: '100%' }} src={preview.image} />
+            >
+          {/* <img alt="Preview" style={{ width: '100%' }} src={preview.image} /> */}
+              <CropImage 
+                src={preview.image || getValue()} 
+                onChange={(newValue: any) =>{
+                  console.log("newValue",newValue);
+                  handleChange({ image: newValue?.croppedImageUrl });
+                }} 
+                 onUpdate={(value:any)=>{
+                       console.log("valueChecjed",value);
+                }}
+                />
         </Modal>
       </Col>
+
     </Row>
   ) : null;
 };

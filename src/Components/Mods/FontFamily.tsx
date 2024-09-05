@@ -13,6 +13,7 @@ export const FontFamily = () => {
   const { mjmlJson, setMjmlJson } = useEditor();
   const { getValue } = useValue({ path, visible, attribute: ATTRIBUTE });
   const [fontlist, fontvalue] = useFonts();
+  console.log("FontFamily", fontvalue);
 
   const handleChange = (value: string) => {
     if (visible && path) {
@@ -38,7 +39,7 @@ export const FontFamily = () => {
 
   return visible ? (
     <Form.Item label="Font Family">
-      <Select value={fontvalue} onChange={handleChange}>
+      <Select value={fontvalue || 'Festive'} onChange={handleChange}>
         {fontlist.map((name: string) => {
           return (
             <Option key={name} value={name}>

@@ -4,7 +4,7 @@ import { Row, Col, Input, Modal, message } from 'antd';
 import { useEditor } from '../../Hooks/Editor.hook';
 import { useValue, useVisibility } from '../../Hooks/Attribute.hook';
 
-const ATTRIBUTE = 'src';
+const ATTRIBUTE = 'href';
 
 const Video = () => {
   const [visible, path] = useVisibility({ attribute: ATTRIBUTE });
@@ -21,32 +21,37 @@ const Video = () => {
     if (path && visible) {
       let json = {};
       let element = _.get(mjmlJson, path);
+      
+      console.log("attribute",element?.attributes);
+             
+
       element.attributes[ATTRIBUTE] = value;
       json = _.set(mjmlJson, path, element);
       setMjmlJson({ ...json });
     }
   };
 
-  return visible ? (
-    <Row>
-      <Col span={24}>
-        <Input
-          addonBefore="Video URL"
-          onChange={handleChange}
-          value={videoUrl}
-          placeholder="Enter video URL"
-        />
-        <div style={{ marginTop: 16 }}>
-          {videoUrl && (
-            <video width="100%" controls>
-              <source src={videoUrl} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          )}
-        </div>
-      </Col>
-    </Row>
-  ) : null;
+  return <></>
+  // visible ? (
+  //   <Row>
+  //     <Col span={24}>
+  //       <Input
+  //         addonBefore="Video URL"
+  //         onChange={handleChange}
+  //         value={videoUrl}
+  //         placeholder="Enter video URL"
+  //       />
+  //       <div style={{ marginTop: 16 }}>
+  //         {videoUrl && (
+  //           <video width="100%" controls>
+  //             <source src={videoUrl} type="video/mp4" />
+  //             Your browser does not support the video tag.
+  //           </video>
+  //         )}
+  //       </div>
+  //     </Col>
+  //   </Row>
+  // ) : null;
 };
 
 export { Video };

@@ -8,6 +8,7 @@ import { useHtmlWrapper } from './Htmlwrapper.hook';
 
 export const useEditor = () => {
   const context = useContext(EditorContext);
+  console.log("context",context)
   return context as unknown as {
     mjmlJson: any;
     setMjmlJson: (v: any) => void;

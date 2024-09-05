@@ -10,10 +10,10 @@ export type DragEvent = SyntheticEvent & { dataTransfer: DataTransfer };
 const properties = ["align", "alt", "border", "border-top", "border-bottom", "border-left", "border-right", "border-radius", "container-background-color", "css-class", "fluid-on-mobile", "height", "href", "name", "padding", "padding-bottom", "padding-left", "padding-right", "padding-top", "rel", "sizes", "src", "srcset", "target", "title", "usemap", "width"]
 
 // prettier-ignore
-const properties_with_default_values = {"align": "center", "alt": "", "border": "none", "border-top": "none", "border-bottom": "none", "border-left": "none", "border-right": "none", "border-radius": "", "container-background-color": "", "css-class": "", "fluid-on-mobile": "", "height": "auto", "href": "", "name": "", "padding": "10px 25px", "padding-bottom": "", "padding-left": "", "padding-right": "", "padding-top": "", "rel": "", "sizes": "", "src": "", "srcset": "", "target": "_blank", "title": "", "usemap": "", "width": "100%"}
+const properties_with_default_values = { "align": "center", "alt": "", "border": "none", "border-top": "none", "border-bottom": "none", "border-left": "none", "border-right": "none", "border-radius": "", "container-background-color": "", "css-class": "", "fluid-on-mobile": "", "height": "auto", "href": "", "name": "", "padding": "10px 25px", "padding-bottom": "", "padding-left": "", "padding-right": "", "padding-top": "", "rel": "", "sizes": "", "src": "", "srcset": "", "target": "_blank", "title": "", "usemap": "", "width": "100%" }
 
 // prettier-ignore
-const assigned_default_values = {"align": "center", "border": "none", "border-top": "none", "border-bottom": "none", "border-left": "none", "border-right": "none", "height": "auto", "padding": "10px 25px", "target": "_blank", "width": "100%"}
+const assigned_default_values = { "align": "center", "border": "none", "border-top": "none", "border-bottom": "none", "border-left": "none", "border-right": "none", "height": "auto", "padding": "10px 25px", "target": "_blank", "width": "100%" }
 
 export const Image = () => {
   const { mjmlJson, setMjmlJson } = useEditor();
@@ -24,7 +24,8 @@ export const Image = () => {
       'css-class': 'mjml-tag identifier-mj-image',
       width: 'auto',
       padding: '0px 8px',
-      src: 'https://dev.bluepie.in/dnde.png',
+      src: 'https://png.pngtree.com/png-clipart/20200311/ourmid/pngtree-empty-frame-with-torn-paper-png-image_2157793.jpg',
+      href: ""
     },
     children: [],
     mutableProperties: properties,

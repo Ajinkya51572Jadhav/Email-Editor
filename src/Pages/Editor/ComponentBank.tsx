@@ -13,6 +13,8 @@ import { Section } from '../../Components/Section';
 import { Social } from '../../Components/Social';
 import { SectionV2 } from '../../Components/SectionV2';
 import { VideoPlayer } from '../../Components/VideoPlayer';
+import { Subscribe } from '../../Components/Subscribe';
+import { Menu } from '../../Components/Menu';
 
 const { Panel } = Collapse;
 
@@ -25,14 +27,18 @@ export const ComponentBank = () => {
     <Scrollbars style={{ height: '100%' }} autoHide={true}>
       <div className={css.components}>
         <SectionV2 />
+        {/* update component */}
+        <Image />
+        <Menu />
+        <Social />
+        <Subscribe />
+        {/* update component */}
+
         <Button />
         <Text />
-        <Image /> 
-         <VideoPlayer/>
         <Spacer />
         <Divider />
         <Html />
-        <Social />
       </div>
     </Scrollbars>
   );

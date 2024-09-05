@@ -17,7 +17,7 @@ const properties_with_default_values = {"color": "#000000", "font-family": "Ubun
 const assigned_default_values  = {"color": "#000000", "font-size": "13px", "line-height": "1", "letter-spacing": "none", "align": "center", "padding": "10px 25px"};
 //note to self: removed fontFamily default value.
 
-export const Text = () => {
+export const Subscribe = () => {
   const { mjmlJson, setMjmlJson } = useEditor();
   const config = { 
     tagName: 'mj-text',
@@ -28,7 +28,7 @@ export const Text = () => {
       'padding-right': '0px',
       'css-class': 'mjml-tag identifier-mj-text',
     },
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis dolor auctor.',
+    content: 'Click here to <a href="www.google.com">unsubscribe</a>',
     mutableProperties: properties,
     mutalbePropertiesWithDefaultValues: properties_with_default_values,
   };
@@ -44,7 +44,7 @@ export const Text = () => {
 
   return (
     <div onDragEnd={onDragEnd} onDragStart={onDragStart} draggable={true}>
-      <UiWrapper background="text" label="Text"/>
+      <UiWrapper background="subscribe" label="subscribe"/>
     </div>
   );
 };

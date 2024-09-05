@@ -62,10 +62,12 @@ export const BorderRadius = ({ activePath }: BorderRadiusProps) => {
   if (visible) {
     value = _.get(mjmlJson, path + 'attributes.border-radius');
   }
+  console.log("loged", value);
+
 
   return visible ? (
     <Form.Item label="Border Radius">
-      <Input onChange={handleChange} value={value} onKeyDown={onKeyDown} />
+      <Input onChange={handleChange} value={value == undefined ? "0px" : value} onKeyDown={onKeyDown} />
     </Form.Item>
   ) : null;
 };

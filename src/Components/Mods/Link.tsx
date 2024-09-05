@@ -48,7 +48,7 @@ const Link = () => {
     <FormItem>
       <Row>
         <Col span={24}>
-          <Input addonBefore={ATTRIBUTE} onBlur={onBlur} onChange={handleChange} value={value} />
+          <Input addonBefore={"Website URL" || ATTRIBUTE} onBlur={onBlur} onChange={handleChange} value={value} />
         </Col>
       </Row>
     </FormItem>

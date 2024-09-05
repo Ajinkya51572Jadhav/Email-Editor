@@ -11,7 +11,7 @@ import { useHtmlWrapper } from '../../Hooks/Htmlwrapper.hook';
 
 const ATTRIBUTE = 'align';
 
-interface AlignOptions {
+interface AlignOptions { 
   title: string;
   prop: string;
   component: ReactNode;

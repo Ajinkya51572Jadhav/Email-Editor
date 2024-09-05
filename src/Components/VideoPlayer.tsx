@@ -18,13 +18,14 @@ const assigned_default_values = {"align": "center", "border": "none", "border-to
 export const VideoPlayer = () => {
   const { mjmlJson, setMjmlJson } = useEditor();
   const config = {
-    tagName: 'mj-image',
+    tagName:'mj-image',
     attributes: {
       ...assigned_default_values,
-      'css-class': 'mjml-tag identifier-mj-image', 
+      'css-class':'mjml-tag identifier-mj-image', 
       width: 'auto',
       padding: '0px 8px',
-      src: 'https://dev.bluepie.in/dnde.png',
+      src: 'https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg',
+      href:"https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     },
     children: [],
     mutableProperties: properties,

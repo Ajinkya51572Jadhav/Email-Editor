@@ -32,6 +32,8 @@ const DesignContainer = styled('div')`
 
 export const View = forwardRef((props: ViewProps, ref) => {
   const { mjmlJson, setMjmlJson } = useEditor();
+  console.log("mjmlProcessor", mjmlJson);
+
   const { getId } = useDragAndDropUniqueId();
   const { setActive, active } = useHtmlWrapper();
   const {
@@ -41,6 +43,9 @@ export const View = forwardRef((props: ViewProps, ref) => {
   } = useCkeditor();
   const { setCopyActive } = copy;
 
+     console.log("checking__",mjmlJson);
+     
+   
   useImperativeHandle(ref, () => {
     return {
       undoCallback,
@@ -128,5 +133,6 @@ export const View = forwardRef((props: ViewProps, ref) => {
 });
 
 const MjmlProcessor = memo(({ mjml, isColumn }: { mjml: any; isColumn: boolean }) => {
+       
   return mjml && htmlProcessor(mjml2html(mjml).html);
 });
